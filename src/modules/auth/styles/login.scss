@@ -1,0 +1,144 @@
+// @use "../../../App.scss";
+.header{
+    background-color: #f1f1f1;
+    padding: 20px;
+    color: #000000;
+    // min-width: 500px;
+}
+.grid-container{
+    color: #000000;
+    display: grid;
+    grid-template-columns: repeat(10,1fr);
+    div{
+        grid-column:span 5;
+    }
+    height: 100vh;
+}
+.form-container{
+    // margin: 100px 0;
+    width: 100%;
+    background: #fff;
+    border: 1px solid rgb(84, 95, 125,0.07);
+    height: 100%;
+    padding: 0 4em;
+    transition: opacity 0.5s;
+}
+.mockup{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    
+    padding: 5em 2em;
+    // justify-content: space-between;
+}
+.logo{
+    padding-left: 24px;
+}
+
+.mockup-img{
+    min-width: 300px;
+    margin-top: 50px;
+    img{
+        width: 100%;
+    }
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2em 0;
+    height: 100%;
+
+    div{
+        width: 100%;
+    }
+    .form-control{
+        display: flex;
+        flex-direction: column;
+        row-gap: 1em;
+        justify-content: space-between;
+        align-items: stretch;
+    }
+    .form-group{
+        input{
+            outline: none;
+            border:2px solid #545F7D26;
+            padding: 12px 8px;
+            border-radius: 6px;
+            width: 100%;
+            background-color: #fff;
+        }
+    }
+    .form-title{
+        font-size: 1.75em;
+        font-weight: 600;
+        margin-bottom: 1.25em;
+        color: #213F7D;
+        h3{
+            margin:0 0 5px 0;
+        }
+        p{
+            font-weight: 400;
+            font-size: 16px;
+            color: #545F7D;
+        }
+    }
+    button{
+        background: #39CDCC;
+        margin-top: 1em;
+        border: none;
+        text-transform: uppercase;
+        &:hover{
+            background: #39CDCC90;
+        }
+    }
+    .form-link{
+        font-size: 12px;
+        text-transform: uppercase;
+            color: #39CDCC;
+            text-decoration: none;
+        &:hover{
+            color: #39CDCC90;
+        }
+    }
+}
+
+@media(max-width:999px){
+    .mockup-img{
+                img{
+                    margin-top: 100px;
+                }
+            }
+}
+@media(max-width: 768px){
+    .grid-container{
+        display: block;
+        width: 100%;
+        position: relative;
+        .mockup{
+            position: absolute;
+            z-index: 1;
+            padding:0 4px;
+            .logo{
+                align-self: center;
+                padding-top: 1em;
+            }
+            .mockup-img{
+                img{
+                    width: 100%;
+                }
+            }
+        }
+
+        .form-container{
+            position: absolute;
+            top: 40px;
+            opacity: 0.975;
+            border: none;
+            // padding: 0 1em;
+            z-index: 3;
+        }
+    
+    }
+}
