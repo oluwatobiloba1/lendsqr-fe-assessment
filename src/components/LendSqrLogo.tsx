@@ -1,8 +1,8 @@
 import React from "react";
 import "./logo.scss";
 export interface ILendSqrLogo {
-  width: number;
-  height?: number;
+  width: number | string;
+  height?: number | string;
 }
 const LendSqrLogo: React.FC<ILendSqrLogo> = ({ width }) => {
   return (

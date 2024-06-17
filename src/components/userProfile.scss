@@ -28,3 +28,11 @@
     text-transform: capitalize;
   }
 }
+
+@media (max-width: 560px) {
+  .user-profile {
+    .user-details {
+      display: none;
+    }
+  }
+}

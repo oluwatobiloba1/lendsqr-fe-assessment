@@ -1,0 +1,70 @@
+@mixin active-item() {
+  background-color: rgb(57, 205, 204, 0.06);
+  border-left: 4px solid #39cdcc;
+  padding-left: 1.75em;
+  a {
+    color: rgb(33, 63, 125);
+  }
+}
+.sidebar-container {
+  position: fixed;
+  bottom: 0;
+  top: 0;
+  z-index: 1;
+  margin-top: 80px;
+  padding: 40px 0;
+  overflow-y: auto;
+  background-color: white;
+  box-shadow: 5px 0px 5px #0101;
+  .input-group {
+    display: none;
+  }
+  .menus-name {
+    display: flex;
+    text-transform: capitalize;
+    align-items: center;
+    column-gap: 0.25em;
+    color: rgb(33, 63, 125, 0.7);
+    padding: 0 2em;
+  }
+  .switch-org {
+    color: rgb(33, 63, 125);
+    text-transform: capitalize;
+    font-weight: 500;
+    margin-bottom: 1em;
+  }
+  .dashboard {
+    margin-bottom: 1em;
+  }
+  h5 {
+    padding: 0 2em;
+    color: #213f7d;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+  a {
+    color: rgb(33, 63, 125, 0.7);
+  }
+  .menu-items:hover {
+    @include active-item;
+    border-left: 0;
+    padding-left: 2em;
+  }
+}
+.active-item {
+  @include active-item;
+}
+@media (max-width: 768px) {
+  .sidebar-container {
+    z-index: 20;
+    transition: transform 1s;
+    transform: translateX(0);
+    .input-group {
+      display: flex;
+      justify-content: center;
+    }
+  }
+  .sidebar-transform {
+    transform: translateX(-100%);
+  }
+}
