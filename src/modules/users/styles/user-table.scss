@@ -1,0 +1,113 @@
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  padding: 1em;
+  color: #545f7d;
+  font-size: 12px;
+  box-shadow: 3px 5px 20px 0px #0000000a;
+  border-radius: 4px;
+  background-color: white;
+  table {
+    width: 100%;
+    padding: 0 0.45em;
+  }
+  th {
+    font-size: 13px;
+    font-weight: 600;
+    color: #545f7d;
+    cursor: pointer;
+  }
+  .table-row {
+    padding-bottom: 0.2em;
+    // position: relative;
+    z-index: 0;
+    // div {
+    //   position: absolute;
+    //   top: 0;
+    //   right: 0;
+    // }
+    td {
+      margin: 0;
+      border-bottom: 1px solid #213f7d1a;
+      padding: 6px;
+      text-transform: capitalize;
+    }
+  }
+}
+.ctx-menu {
+  // position: absolute;
+  top: 5;
+  z-index: 10;
+  right: 0;
+  min-width: 180px;
+  border: 1px solid rgba(84, 95, 125, 0.04);
+  border-radius: 4px;
+  background-color: white;
+  box-shadow: 4px 4px 20px rgba(84, 95, 125, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  row-gap: 0.25em;
+  padding: 0.5em 1.75em;
+
+  div {
+    display: flex;
+    align-items: center;
+    column-gap: 5px;
+    font-weight: 500;
+    font-size: 14px;
+    text-transform: capitalize;
+    &:hover {
+      cursor: pointer;
+    }
+    a {
+      color: inherit;
+    }
+  }
+}
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  .limit-group {
+    display: flex;
+    align-items: center;
+    column-gap: 0.5em;
+    #limit {
+      padding: 0.5em;
+      border-radius: 4px;
+      border: none;
+      outline: none;
+      font-size: 14px;
+      font-weight: 600;
+      background-color: #e3e2e2;
+      color: #545f7d;
+      cursor: pointer;
+    }
+  }
+  .page-group {
+    display: flex;
+    align-items: center;
+    column-gap: 0.75em;
+    span {
+      cursor: pointer;
+    }
+    button {
+      padding: 0.5em;
+      border-radius: 4px;
+      border: none;
+      outline: none;
+      font-size: 16px;
+      font-weight: 700;
+      background-color: #e3e2e2;
+      color: #545f7d;
+      cursor: pointer;
+      &:disabled {
+        cursor: not-allowed;
+        opacity: 0.5;
+      }
+    }
+    .active {
+      opacity: 1;
+    }
+  }
+}

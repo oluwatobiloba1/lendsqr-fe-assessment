@@ -2,11 +2,21 @@ import { ReactSVG } from "react-svg";
 import LendSqrLogo from "../../../components/LendSqrLogo";
 import UserProfile from "../../../components/UserProfile";
 import "../styles/header.scss";
+import { useEffect, useState } from "react";
 
 export interface IHeaderBar {
   setSlideSideBar: React.Dispatch<React.SetStateAction<boolean>>;
 }
 const HeaderBar: React.FC<IHeaderBar> = ({ setSlideSideBar }) => {
+  const [name, setName] = useState("");
+  useEffect(() => {
+    const emailStr = localStorage.getItem("email");
+    if (emailStr) {
+      const name = emailStr.split("@")[0];
+      console.log(name);
+      setName(name);
+    }
+  }, []);
   const handleMenuClick = () => {
     setSlideSideBar((prev) => !prev);
   };
@@ -32,7 +42,7 @@ const HeaderBar: React.FC<IHeaderBar> = ({ setSlideSideBar }) => {
             Docs
           </a>
           <ReactSVG src={"bell.svg"} />
-          <UserProfile name={"tobi bamisebi"} image="" />
+          <UserProfile name={name} image="" />
           <button
             style={{
               background: "none",

@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/side-bar.scss";
+import { Link } from "@tanstack/react-router";
 
 const sideBarMenuItems = [
   {
@@ -161,7 +162,7 @@ const Sidebar: React.FC<ISidebar> = ({ slideSidebar }) => {
             {sideBarMenuItems
               .filter((item) => item.group === "customers")
               .map((menuItem) => (
-                <MenuItem menuItem={menuItem} />
+                <MenuItem key={menuItem.name} menuItem={menuItem} />
               ))}
           </div>
         </div>
@@ -171,7 +172,7 @@ const Sidebar: React.FC<ISidebar> = ({ slideSidebar }) => {
             {sideBarMenuItems
               .filter((item) => item.group === "businesses")
               .map((menuItem) => (
-                <MenuItem menuItem={menuItem} />
+                <MenuItem key={menuItem.name} menuItem={menuItem} />
               ))}
           </div>
         </div>
@@ -181,7 +182,7 @@ const Sidebar: React.FC<ISidebar> = ({ slideSidebar }) => {
             {sideBarMenuItems
               .filter((item) => item.group === "settings")
               .map((menuItem) => (
-                <MenuItem menuItem={menuItem} />
+                <MenuItem key={menuItem.name} menuItem={menuItem} />
               ))}
           </div>
         </div>
@@ -201,9 +202,9 @@ const MenuItem = ({ menuItem }: { menuItem: (typeof sideBarMenuItems)[0] }) => {
         }`}
       >
         <img src={`${menuItem.icon}.svg`} alt="" />
-        <a href={menuItem.url}>
+        <Link to={menuItem.url}>
           <p>{menuItem.name}</p>
-        </a>
+        </Link>
       </div>
     </>
   );

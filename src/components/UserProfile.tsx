@@ -16,9 +16,11 @@ const UserProfile: React.FC<IUserProfile> = ({ name, image }) => {
           {image.length ? (
             <img className="avatar" src={image} alt={name} />
           ) : (
-            <div className="avatar" style={{ backgroundColor: avatarColor }}>
-              {name[0].toUpperCase()}
-            </div>
+            name && (
+              <div className="avatar" style={{ backgroundColor: avatarColor }}>
+                {name[0].toUpperCase()}
+              </div>
+            )
           )}
         </div>
         <div className="user-details">

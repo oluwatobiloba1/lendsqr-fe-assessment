@@ -10,10 +10,10 @@ const LoginForm: React.FC = () => {
   };
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log({
-      email: emailRef.current?.value,
-      password: passwordRef.current?.value,
-    });
+    if (emailRef?.current?.value && passwordRef?.current?.value) {
+      localStorage.setItem("email", emailRef?.current?.value);
+      window.history.pushState("", "", "/users");
+    }
   };
   return (
     <div className="form-container">

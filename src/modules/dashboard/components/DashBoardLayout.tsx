@@ -5,6 +5,7 @@ import { useState } from "react";
 
 const DashBoardLayout = ({ children }: { children: React.ReactNode }) => {
   const [slideSideBar, setSlideSideBar] = useState(false);
+
   return (
     <div>
       <HeaderBar setSlideSideBar={setSlideSideBar} />
