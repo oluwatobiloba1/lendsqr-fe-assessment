@@ -26,6 +26,37 @@ const UsersList = () => {
   }
   return (
     <div className="container">
+      <h2>Users</h2>
+      <div className="stats-count">
+        <div className="stats-card">
+          <div style={{ backgroundColor: "rgba(223, 24, 255, 0.1)" }}>
+            <img src="/users-count.png" />
+          </div>
+          <p>Users</p>
+          <h3>2,453</h3>
+        </div>
+        <div className="stats-card">
+          <div style={{ backgroundColor: "rgba(87, 24, 255, 0.1)" }}>
+            <img src="/active-count.png" />
+          </div>
+          <p>Active Users</p>
+          <h3>2,453</h3>
+        </div>
+        <div className="stats-card">
+          <div style={{ backgroundColor: "rgba(245, 95, 68, 0.1)" }}>
+            <img src="/loan-count.png" />
+          </div>
+          <p>Users with Loans</p>
+          <h3>12,453</h3>
+        </div>
+        <div className="stats-card">
+          <div style={{ backgroundColor: "rgba(255, 51, 102, 0.1)" }}>
+            <img src="/savings-count.png" />
+          </div>
+          <p>Users with Savings</p>
+          <h3>102,453</h3>
+        </div>
+      </div>
       <div className="table-view">
         <UsersTable users={users} />
       </div>

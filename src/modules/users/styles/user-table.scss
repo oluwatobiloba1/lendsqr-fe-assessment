@@ -68,6 +68,7 @@
 .pagination {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   .limit-group {
     display: flex;
     align-items: center;
@@ -109,5 +110,14 @@
     .active {
       opacity: 1;
     }
+  }
+}
+
+@media (max-width: 768px) {
+  .page-group {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
   }
 }
