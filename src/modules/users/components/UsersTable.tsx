@@ -1,8 +1,5 @@
 import {
-  Column,
-  ColumnDef,
   PaginationState,
-  Table,
   createColumnHelper,
   flexRender,
   getCoreRowModel,
@@ -11,7 +8,7 @@ import {
   getSortedRowModel,
   useReactTable,
 } from "@tanstack/react-table";
-import React, { useEffect } from "react";
+import React from "react";
 import "../styles/user-table.scss";
 import Tag from "../../../components/Tag";
 import { DateHelper } from "../../../utils/date-helper";
@@ -29,7 +26,6 @@ const statusStying: Record<User["status"], { bg: string; color: string }> = {
 };
 const UsersTable: React.FC<IUsersTable> = ({ users }) => {
   const [selectedId, setSelectedId] = React.useState<string | null>(null);
-  const [limit, setLimit] = React.useState<number>(50);
   const columnHelper = createColumnHelper<User>();
   const columns = [
     columnHelper.accessor("personalinfo.organization", {
@@ -119,7 +115,7 @@ const UsersTable: React.FC<IUsersTable> = ({ users }) => {
 
   const [pagination, setPagination] = React.useState<PaginationState>({
     pageIndex: 0,
-    pageSize: limit,
+    pageSize: 50,
   });
   const table = useReactTable({
     columns,
