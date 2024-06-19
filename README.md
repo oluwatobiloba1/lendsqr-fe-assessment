@@ -22,7 +22,7 @@ Make sure you have the following software installed on your system:
    Open your terminal and run the following command to clone the repository:
 
    ```sh
-   git clone https://github.com/oluwatobiloba1/lendsqr-fe-assessment.git
+   git clone https://github.com/oluwatobiloba1/lendsqr-fe-test.git
    ```
 
 2. **change into the directory where the app is**, and
