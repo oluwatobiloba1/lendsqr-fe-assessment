@@ -2,6 +2,10 @@
 
 This is a simple React application bootstrapped with Vite.
 
+## IMPLEMENTATION REVIEW AND DOCUMENTATION
+
+- [Docs](https://docs.google.com/document/d/1eviqLQ66us0rZbvhXm6ifXk1xz6icHhs8xGN5qP4Qvg/edit?usp=sharing)
+
 # Local Setup
 
 ## Getting Started
