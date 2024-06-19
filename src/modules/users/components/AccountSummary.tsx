@@ -38,7 +38,7 @@ const AccountSummary: React.FC<IAccountSummary> = ({ params }) => {
             </div>
           </div>
           <div className="tier">
-            <UsersTier count={1} />
+            <UsersTier />
           </div>
           <div className="balance">
             <p>{CurrencyHelper.formatCurrency(200000)}</p>
@@ -118,7 +118,7 @@ const AccountSummary: React.FC<IAccountSummary> = ({ params }) => {
 
 export default AccountSummary;
 
-const UsersTier = ({ count }: { count: number }) => {
+const UsersTier = () => {
   return (
     <>
       <p>User's Tier</p>

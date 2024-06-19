@@ -4,12 +4,12 @@ const UserDetailsLayout = ({
   params,
   children,
 }: {
-  params: string;
+  params: { userId: string };
   children: React.ReactNode;
 }) => {
   return (
     <div>
-      <AccountSummary params={{ userId: params }} />
+      <AccountSummary params={{ userId: params.userId }} />
       <main>{children}</main>
     </div>
   );

@@ -6,6 +6,7 @@ export interface IUserDetails {
 }
 const UserDetails: React.FC<IUserDetails> = ({ params }) => {
   const { userId } = params;
+  console.log(userId);
   return (
     <>
       <div className="details-container container-shadow">
