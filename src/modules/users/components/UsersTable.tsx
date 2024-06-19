@@ -280,7 +280,7 @@ const UsersTable: React.FC<IUsersTable> = ({ users, loading }) => {
           </tbody>
         </table>
       </div>
-      {users && (
+      {!!table.getRowModel().rows.length && (
         <div className="pagination">
           <div className="limit-group">
             <span>
