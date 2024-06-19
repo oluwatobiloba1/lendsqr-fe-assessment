@@ -41,6 +41,8 @@
       li {
         height: 100%;
         list-style: none;
+        margin: 0em 0.5em;
+        min-width: max-content;
         a {
           min-width: max-content;
           color: rgba(0, 0, 0, 0.8);
@@ -141,6 +143,47 @@
     }
     &:last-child {
       border-bottom: none;
+    }
+  }
+}
+
+.skeleton-box {
+  height: 200px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+  border-radius: 8px;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .details-container {
+    padding: 1em;
+    section {
+      grid-template-columns: repeat(6, 1fr);
+      gap: 1em;
+      h5 {
+        grid-column: span 6;
+      }
+    }
+  }
+}
+
+@media (max-width: 390px) {
+  .details-container {
+    section {
+      grid-template-columns: repeat(3, 1fr);
+      h5 {
+        grid-column: span 3;
+      }
     }
   }
 }

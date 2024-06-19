@@ -8,7 +8,7 @@ export interface IHeaderBar {
   setSlideSideBar: React.Dispatch<React.SetStateAction<boolean>>;
 }
 const HeaderBar: React.FC<IHeaderBar> = ({ setSlideSideBar }) => {
-  const [name, setName] = useState("");
+  const [name, setName] = useState("Default User");
   useEffect(() => {
     const emailStr = localStorage.getItem("email");
     if (emailStr) {

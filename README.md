@@ -56,5 +56,5 @@ Make sure you have the following software installed on your system:
 3. Preview the built app
 
 ```sh
-  npm run serve
+  npm run preview
 ```

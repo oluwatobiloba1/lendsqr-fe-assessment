@@ -16,6 +16,7 @@ import { ReactSVG } from "react-svg";
 import { Link } from "@tanstack/react-router";
 import { User } from "../types/user.type";
 import TableFilter from "./TableFilter";
+import { useNavigate } from "@tanstack/react-router";
 import { FilterUserTable } from "../types/filter-object.types";
 
 export interface IUsersTable {
@@ -162,6 +163,15 @@ const UsersTable: React.FC<IUsersTable> = ({ users, loading }) => {
     table.setColumnFilters([]);
   };
 
+  const navigate = useNavigate();
+  const handleRowClick = (name: string) => {
+    const clickedUSer = users.find(
+      (user) => user.personalinfo.fullname === name
+    );
+    localStorage.setItem("clickedUSer", JSON.stringify(clickedUSer));
+    navigate({ to: `/users/${name}` });
+  };
+
   const [showFilterBtn, setShowFilterBtn] = useState(false);
   const [showFilter, setShowFilter] = useState(false);
   if (loading) {
@@ -262,7 +272,13 @@ const UsersTable: React.FC<IUsersTable> = ({ users, loading }) => {
             ) : (
               table.getRowModel().rows.map((row) => {
                 return (
-                  <tr key={row.id} className="table-row">
+                  <tr
+                    key={row.id}
+                    className="table-row"
+                    onClick={() =>
+                      handleRowClick(row.original.personalinfo.fullname)
+                    }
+                  >
                     {row.getVisibleCells().map((cell) => {
                       return (
                         <td key={cell.id}>
