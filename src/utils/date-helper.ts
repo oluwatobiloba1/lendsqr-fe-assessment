@@ -9,4 +9,9 @@ export class DateHelper {
       { locale: "en-NG" }
     );
   }
+
+  static getJsDate(date?: string | Date) {
+    if (!date) return new Date();
+    return new Date(date);
+  }
 }

@@ -38,7 +38,7 @@ interface Guarantor {
   relationship: "friend" | "colleague" | "family" | "other";
 }
 
-interface User {
+export interface User {
   personalinfo: PersonalInfo;
   employment: Employment;
   socials: Socials;

@@ -10,6 +10,7 @@
   table {
     width: 100%;
     padding: 0 0.45em;
+    z-index: 1;
   }
   th {
     font-size: 13px;
@@ -35,7 +36,7 @@
   }
 }
 .ctx-menu {
-  // position: absolute;
+  position: absolute;
   top: 5;
   z-index: 10;
   right: 0;
@@ -109,6 +110,89 @@
     }
     .active {
       opacity: 1;
+    }
+  }
+}
+.filter-btn {
+  position: absolute;
+  z-index: -10;
+  top: -40px;
+  // margin-bottom: 20px;
+  // transform: translateY(0%);
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.hide {
+  transform: translateY(100px);
+}
+.filter {
+  position: absolute;
+  top: 40px;
+  left: 20px;
+  .close {
+    right: -30px;
+    color: black;
+    border-radius: 50%;
+    padding: 0.2em 0.5em;
+    font-weight: 500;
+    font-size: 14px;
+    background-color: rgba(0, 0, 0, 0.08);
+    position: absolute;
+  }
+}
+
+.table-filter {
+  border: 1px solid rgba(84, 95, 125, 0.14);
+  border-radius: 4px;
+  background-color: white;
+  padding: 1em;
+  box-shadow: 3px 5px 20px 0px rgba(0, 0, 0, 0.04);
+
+  form {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1em;
+
+    .form-control {
+      display: flex;
+      flex-direction: column;
+      row-gap: 0.2em;
+      label {
+        text-transform: capitalize;
+        font-size: 14px;
+        font-weight: 500;
+      }
+      select {
+        color: rgba(33, 63, 125, 1);
+        padding: 0.5em;
+        border: 1px solid rgba(33, 63, 125, 0.1);
+        background-color: white;
+        border-radius: 4px;
+        option {
+          text-transform: capitalize;
+        }
+      }
+      input {
+        padding: 0.5em;
+        border: 1px solid rgba(33, 63, 125, 0.1);
+      }
+    }
+    button {
+      text-transform: capitalize;
+      border: none;
+      outline: none;
+    }
+  }
+  .btn-group {
+    display: flex;
+    gap: 0.2em;
+    justify-content: space-between;
+    #reset {
+      background-color: transparent;
+      color: rgba(84, 95, 125, 1);
+      border: 1px solid rgba(84, 95, 125, 1);
+      &:hover {
+        background-color: #f7f8f9;
+      }
     }
   }
 }

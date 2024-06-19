@@ -1,10 +1,11 @@
 import React, { useRef, useState } from "react";
-
+import { useNavigate } from "@tanstack/react-router";
 const LoginForm: React.FC = () => {
   const [showPass, setShowPass] = useState(false);
   const [activeInput, setActiveInput] = useState("");
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
+  const navigate = useNavigate();
   const onInputFocus = (e: React.FocusEvent<HTMLInputElement>) => {
     setActiveInput(e.target.name);
   };
@@ -12,7 +13,7 @@ const LoginForm: React.FC = () => {
     e.preventDefault();
     if (emailRef?.current?.value && passwordRef?.current?.value) {
       localStorage.setItem("email", emailRef?.current?.value);
-      window.history.pushState("", "", "/users");
+      navigate({ to: "/users" });
     }
   };
   return (
