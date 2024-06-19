@@ -2,6 +2,8 @@ import { Link, useMatchRoute } from "@tanstack/react-router";
 import { ReactSVG } from "react-svg";
 import { CurrencyHelper } from "../../../utils/currency-helper";
 import "../styles/user-details.scss";
+import { useEffect, useState } from "react";
+import { User } from "../types/user.type";
 
 export interface IAccountSummary {
   params: Record<string, string>;
@@ -9,8 +11,16 @@ export interface IAccountSummary {
 
 const AccountSummary: React.FC<IAccountSummary> = ({ params }) => {
   const BASEURL = `/users/${params.userId}/`;
+  const [user, setUser] = useState<User | undefined>(undefined);
+  useEffect(() => {
+    const storedUser = localStorage.getItem("clickedUSer");
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    }
+  });
 
   const matchRoute = useMatchRoute();
+  if (!user) return <div className="skeleton" style={{ width: "100%" }}></div>;
   return (
     <div>
       <Link className="arrow-nav" to="/users">
@@ -22,8 +32,13 @@ const AccountSummary: React.FC<IAccountSummary> = ({ params }) => {
       <div className="page-header">
         <h2>User Details</h2>
         <div className="btn-group">
-          <button id="blacklist">blacklist user</button>
-          <button id="activate">activate user</button>
+          {user.status === "active" && (
+            <button id="blacklist">blacklist user</button>
+          )}
+          {user.status === "inactive" ||
+            (user.status === "blacklisted" && (
+              <button id="activate">activate user</button>
+            ))}
         </div>
       </div>
       <section className="account-section container-shadow">
@@ -33,7 +48,7 @@ const AccountSummary: React.FC<IAccountSummary> = ({ params }) => {
               <img src="/user-profile.png" alt="" />
             </div>
             <div className="name">
-              <p>Grace effioem</p>
+              <p>{user.personalinfo.fullname ?? ""}</p>
               <p>LSQFf587g90</p>
             </div>
           </div>

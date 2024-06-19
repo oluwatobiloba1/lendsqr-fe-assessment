@@ -21,13 +21,11 @@
   }
   .table-row {
     padding-bottom: 0.2em;
-    // position: relative;
+    &:hover {
+      cursor: pointer;
+    }
     z-index: 0;
-    // div {
-    //   position: absolute;
-    //   top: 0;
-    //   right: 0;
-    // }
+
     td {
       margin: 0;
       border-bottom: 1px solid #213f7d1a;
