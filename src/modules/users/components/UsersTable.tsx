@@ -83,7 +83,8 @@ const UsersTable: React.FC<IUsersTable> = ({ users, loading }) => {
       cell: (info) => (
         <div style={{ position: "relative", zIndex: 0 }}>
           <button
-            onClick={() => {
+            onClick={(e) => {
+              e.stopPropagation();
               if (selectedId === info.getValue()) {
                 setSelectedId(null);
               } else {
@@ -94,10 +95,18 @@ const UsersTable: React.FC<IUsersTable> = ({ users, loading }) => {
               background: "none",
               border: "none",
               outline: "none",
-              position: "relative",
+              position: "absolute",
+              // top: 0,
+              left: "-10px",
+              bottom: 0,
+              zIndex: 0,
             }}
           >
-            <img src="/ellipsis.svg" alt="" />
+            <img
+              style={{ position: "absolute", zIndex: 0 }}
+              src="/ellipsis.svg"
+              alt=""
+            />
           </button>
           {selectedId === info.getValue() && (
             <div onBlur={() => setSelectedId(null)} className="ctx-menu">
