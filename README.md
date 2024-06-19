@@ -1,30 +1,60 @@
-# React + TypeScript + Vite
+# Lendsqr Frontent Test
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a simple React application bootstrapped with Vite.
 
-Currently, two official plugins are available:
+# Local Setup
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Getting Started
 
-## Expanding the ESLint configuration
+Follow the instructions below to clone the repository and set up the project to run locally on your machine.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### Prerequisites
 
-- Configure the top-level `parserOptions` property like this:
+Make sure you have the following software installed on your system:
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+- [Node.js](https://nodejs.org/en/download/) (version 14.0.0 or later)
+- [Git](https://git-scm.com/downloads)
+
+### Installation
+
+1. **Clone the repository**
+
+   Open your terminal and run the following command to clone the repository:
+
+   ```sh
+   git clone <repository-url>
+   ```
+
+2. **change into the directory where the app is**
+   run the following in the terminal:
+
+```sh
+  cd lendsqr-fe-assessment
+  # or the name you gave when cloning the project
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+3. **install all necessary dependency**
+
+```sh
+  npm install
+```
+
+## Start The Application
+
+1. Start the development server and open the application in the browser at **http://localhost:5173**
+
+```sh
+  npm run dev
+```
+
+2. Build the application simply run
+
+```sh
+  npm run build
+```
+
+3. Preview the built app
+
+```sh
+  npm run serve
+```
