@@ -1,0 +1,146 @@
+.page-header {
+  margin-bottom: 2em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  h2 {
+    margin: 0;
+  }
+  div {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 16px;
+    column-gap: 0.6em;
+    button {
+      text-transform: uppercase;
+      background-color: transparent;
+    }
+  }
+  #blacklist {
+    border: 1px solid rgba(228, 3, 59, 1);
+    color: rgba(228, 3, 59, 1);
+  }
+  #activate {
+    border: 1px solid rgba(57, 205, 204, 1);
+    color: rgba(57, 205, 204, 1);
+  }
+}
+.account-section {
+  background-color: white;
+  padding: 1.5em 1.5em 0 1.5em;
+  border-radius: 4px;
+  nav {
+    ul {
+      display: flex;
+      padding: 1em;
+      padding-bottom: 2em;
+      overflow-x: auto;
+      height: 100%;
+      margin: 0;
+      justify-content: space-between;
+      li {
+        height: 100%;
+        list-style: none;
+        a {
+          min-width: max-content;
+          color: rgba(0, 0, 0, 0.8);
+          padding-bottom: 0.75em;
+        }
+        .active-nav {
+          border-bottom: 2px solid rgba(57, 205, 204, 1);
+          color: rgba(57, 205, 204, 1);
+        }
+      }
+    }
+  }
+}
+.account-details {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 3em;
+  .account-profile {
+    display: flex;
+    gap: 0.5em;
+    align-items: center;
+    .profile-pic {
+      background-color: rgba(33, 63, 125, 0.16);
+      border-radius: 50%;
+      width: 90px;
+      height: 90px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .name {
+      p {
+        &:first-child {
+          font-size: 22px;
+          font-weight: 500;
+          text-transform: capitalize;
+        }
+        margin: 0.2em 0;
+      }
+    }
+  }
+  .balance {
+    p {
+      &:first-child {
+        font-size: 22px;
+        font-weight: 500;
+      }
+    }
+  }
+  .tier {
+    border-left: 1px solid rgb(84, 95, 125, 0.2);
+    border-right: 1px solid rgb(84, 95, 125, 0.2);
+    padding: 0.2em 0.75em;
+    div {
+      display: flex;
+      gap: 0.2em;
+    }
+  }
+}
+.container-shadow {
+  box-shadow: 3px 5px 20px 0px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(33, 63, 125, 0.06);
+}
+
+.details-container {
+  margin: 2.5em 0;
+  border-radius: 4px;
+  padding: 1.5em;
+  background-color: white;
+
+  section {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 2em;
+    padding: 1em 0;
+    border-bottom: 1px solid rgba(33, 63, 125, 0.1);
+    h5 {
+      grid-column: span 12;
+      font-size: 16px;
+      font-weight: 500;
+      margin: 0;
+    }
+    div {
+      grid-column: span 3;
+      p {
+        text-transform: capitalize;
+        margin: 0.5em 0;
+        &:first-child {
+          text-transform: uppercase;
+          font-size: 12px;
+          color: rgba(84, 95, 125, 1);
+        }
+      }
+      .email {
+        text-transform: lowercase;
+      }
+    }
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}

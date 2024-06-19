@@ -13,7 +13,7 @@ const DashBoardLayout = ({ children }: { children: React.ReactNode }) => {
         <div style={{ zIndex: 0 }}>
           <Sidebar slideSidebar={slideSideBar} />
         </div>
-        <main>{children}</main>
+        <main className="main">{children}</main>
       </div>
     </div>
   );

@@ -39,7 +39,15 @@
     }
   }
 }
-
+.arrow-nav {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  color: rgba(84, 95, 125, 1);
+  span {
+    margin-top: 7px;
+  }
+}
 @media (max-width: 900px) {
   .container {
     .stats-count {

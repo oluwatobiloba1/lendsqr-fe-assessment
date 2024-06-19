@@ -13,7 +13,6 @@ const HeaderBar: React.FC<IHeaderBar> = ({ setSlideSideBar }) => {
     const emailStr = localStorage.getItem("email");
     if (emailStr) {
       const name = emailStr.split("@")[0];
-      console.log(name);
       setName(name);
     }
   }, []);
