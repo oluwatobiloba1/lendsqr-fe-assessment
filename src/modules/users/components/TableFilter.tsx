@@ -2,7 +2,6 @@ import { FilterUserTable } from "../types/filter-object.types";
 import "../styles/user-table.scss";
 import { ReactSVG } from "react-svg";
 import { useRef, useState } from "react";
-import { DateHelper } from "../../../utils/date-helper";
 
 export interface ITableFilter {
   filterFn: (filterObject: FilterUserTable) => void;
@@ -13,7 +12,7 @@ const initialValue = {
   organization: "",
   username: "",
   email: "",
-  date: DateHelper.getDateString() as string,
+  date: "",
   phonenumber: "",
   status: "" as any,
 };

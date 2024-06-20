@@ -69,7 +69,9 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  z-index: 0;
   .limit-group {
+    position: relative;
     display: flex;
     align-items: center;
     column-gap: 0.5em;
@@ -127,6 +129,7 @@
   position: absolute;
   top: 40px;
   left: 20px;
+  z-index: 200;
   .close {
     right: -30px;
     color: black;

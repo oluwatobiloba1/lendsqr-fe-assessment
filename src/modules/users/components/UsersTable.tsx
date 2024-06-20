@@ -213,10 +213,10 @@ const UsersTable: React.FC<IUsersTable> = ({ users, loading }) => {
       </button>
       {showFilter && (
         <div className="filter">
-          <TableFilter filterFn={handleFilter} resetFn={handleFilterReset} />
           <button onClick={() => setShowFilter(false)} className="close">
             X
           </button>
+          <TableFilter filterFn={handleFilter} resetFn={handleFilterReset} />
         </div>
       )}
       <div className="table-container">
@@ -315,7 +315,10 @@ const UsersTable: React.FC<IUsersTable> = ({ users, loading }) => {
       </div>
       {!!table.getRowModel().rows.length && (
         <div className="pagination">
-          <div className="limit-group">
+          <div
+            className="limit-group"
+            style={{ zIndex: !showFilter ? 0 : "-10" }}
+          >
             <span>
               <p style={{ textTransform: "capitalize" }}>showing</p>
             </span>
@@ -333,112 +336,120 @@ const UsersTable: React.FC<IUsersTable> = ({ users, loading }) => {
               <option value={500}>500</option>
             </select>
             <span>
-              <p>out of 500</p>
+              <p>out of {table.getRowCount()}</p>
             </span>
           </div>
-          <div className="page-group">
-            <button
-              disabled={!table.getCanPreviousPage()}
-              onClick={() => table.setPageIndex((prev) => prev - 1)}
-            >
-              {"<"}
-            </button>
-            <span
-              style={{
-                opacity: table.getState().pagination.pageIndex == 0 ? 1 : 0.5,
-              }}
-              onClick={() => handlePageSelect(0)}
-            >
-              1
-            </span>
-            {table.getState().pagination.pageIndex > 0 &&
-              table.getState().pagination.pageIndex <
-                table.getPageCount() - 4 && (
-                <span>{table.getState().pagination.pageIndex + 1}</span>
+          {table.getRowCount() > table.getState().pagination.pageSize && (
+            <div className="page-group">
+              <button
+                disabled={!table.getCanPreviousPage()}
+                onClick={() => table.setPageIndex((prev) => prev - 1)}
+              >
+                {"<"}
+              </button>
+              <span
+                style={{
+                  opacity: table.getState().pagination.pageIndex == 0 ? 1 : 0.5,
+                }}
+                onClick={() => handlePageSelect(0)}
+              >
+                1
+              </span>
+              {table.getState().pagination.pageIndex > 0 &&
+                table.getState().pagination.pageIndex <
+                  table.getPageCount() - 4 && (
+                  <span>{table.getState().pagination.pageIndex + 1}</span>
+                )}
+              {table.getPageCount() -
+                1 -
+                table.getState().pagination.pageIndex >
+              3 ? (
+                <>
+                  <span
+                    onClick={() => {
+                      handlePageSelect(
+                        table.getState().pagination.pageIndex + 1
+                      );
+                    }}
+                    style={{ opacity: 0.5 }}
+                  >
+                    {table.getState().pagination.pageIndex + 2}
+                  </span>
+                  <span
+                    onClick={() =>
+                      handlePageSelect(
+                        table.getState().pagination.pageIndex + 2
+                      )
+                    }
+                    style={{ opacity: 0.5 }}
+                  >
+                    {table.getState().pagination.pageIndex + 3}
+                  </span>
+                  <span style={{ opacity: 0.5, cursor: "default" }}>...</span>
+                  <span
+                    onClick={() => handlePageSelect(table.getPageCount() - 1)}
+                    style={{ opacity: 0.5 }}
+                  >
+                    {table.getPageCount() - 1}
+                  </span>
+                </>
+              ) : (
+                <>
+                  <span style={{ opacity: 0.5, cursor: "default" }}>...</span>
+                  <span
+                    onClick={() => handlePageSelect(table.getPageCount() - 4)}
+                    style={{
+                      opacity:
+                        table.getState().pagination.pageIndex ==
+                        table.getPageCount() - 4
+                          ? 1
+                          : 0.5,
+                    }}
+                  >
+                    {table.getPageCount() - 3}
+                  </span>
+                  <span
+                    onClick={() => handlePageSelect(table.getPageCount() - 3)}
+                    style={{
+                      opacity:
+                        table.getState().pagination.pageIndex ==
+                        table.getPageCount() - 3
+                          ? 1
+                          : 0.5,
+                    }}
+                  >
+                    {table.getPageCount() - 2}
+                  </span>
+                  <span
+                    onClick={() => handlePageSelect(table.getPageCount() - 2)}
+                    style={{
+                      opacity:
+                        table.getState().pagination.pageIndex ==
+                        table.getPageCount() - 2
+                          ? 1
+                          : 0.5,
+                    }}
+                  >
+                    {table.getPageCount() - 1}
+                  </span>
+                </>
               )}
-            {table.getPageCount() - 1 - table.getState().pagination.pageIndex >
-            3 ? (
-              <>
-                <span
-                  onClick={() => {
-                    handlePageSelect(table.getState().pagination.pageIndex + 1);
-                  }}
-                  style={{ opacity: 0.5 }}
-                >
-                  {table.getState().pagination.pageIndex + 2}
-                </span>
-                <span
-                  onClick={() =>
-                    handlePageSelect(table.getState().pagination.pageIndex + 2)
-                  }
-                  style={{ opacity: 0.5 }}
-                >
-                  {table.getState().pagination.pageIndex + 3}
-                </span>
-                <span style={{ opacity: 0.5, cursor: "default" }}>...</span>
-                <span
-                  onClick={() => handlePageSelect(table.getPageCount() - 1)}
-                  style={{ opacity: 0.5 }}
-                >
-                  {table.getPageCount() - 1}
-                </span>
-              </>
-            ) : (
-              <>
-                <span style={{ opacity: 0.5, cursor: "default" }}>...</span>
-                <span
-                  onClick={() => handlePageSelect(table.getPageCount() - 4)}
-                  style={{
-                    opacity:
-                      table.getState().pagination.pageIndex ==
-                      table.getPageCount() - 4
-                        ? 1
-                        : 0.5,
-                  }}
-                >
-                  {table.getPageCount() - 3}
-                </span>
-                <span
-                  onClick={() => handlePageSelect(table.getPageCount() - 3)}
-                  style={{
-                    opacity:
-                      table.getState().pagination.pageIndex ==
-                      table.getPageCount() - 3
-                        ? 1
-                        : 0.5,
-                  }}
-                >
-                  {table.getPageCount() - 2}
-                </span>
-                <span
-                  onClick={() => handlePageSelect(table.getPageCount() - 2)}
-                  style={{
-                    opacity:
-                      table.getState().pagination.pageIndex ==
-                      table.getPageCount() - 2
-                        ? 1
-                        : 0.5,
-                  }}
-                >
-                  {table.getPageCount() - 1}
-                </span>
-              </>
-            )}
-            <span
-              onClick={() => handlePageSelect(table.getPageCount() - 1)}
-              style={{
-                opacity: table.getState().pagination.pageIndex == 9 ? 1 : 0.5,
-              }}
-            >
-              {table.getPageCount()}
-            </span>
-            <button
-              disabled={!table.getCanNextPage()}
-              onClick={() => table.setPageIndex((prev) => prev + 1)}
-            >
-              {">"}
-            </button>
-          </div>
+              <span
+                onClick={() => handlePageSelect(table.getPageCount() - 1)}
+                style={{
+                  opacity: table.getState().pagination.pageIndex == 9 ? 1 : 0.5,
+                }}
+              >
+                {table.getPageCount()}
+              </span>
+              <button
+                disabled={!table.getCanNextPage()}
+                onClick={() => table.setPageIndex((prev) => prev + 1)}
+              >
+                {">"}
+              </button>
+            </div>
+          )}
         </div>
       )}
     </div>
