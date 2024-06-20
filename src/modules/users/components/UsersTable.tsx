@@ -8,7 +8,7 @@ import {
   getSortedRowModel,
   useReactTable,
 } from "@tanstack/react-table";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "../styles/user-table.scss";
 import Tag from "../../../components/Tag";
 import { DateHelper } from "../../../utils/date-helper";
