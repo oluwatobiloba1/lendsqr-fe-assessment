@@ -188,6 +188,7 @@ const UsersTable: React.FC<IUsersTable> = ({ users, loading }) => {
 
   const [showFilterBtn, setShowFilterBtn] = useState(false);
   const [showFilter, setShowFilter] = useState(false);
+
   if (loading) {
     return (
       <div>
