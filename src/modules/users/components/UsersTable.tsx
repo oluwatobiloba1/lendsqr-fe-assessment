@@ -354,14 +354,14 @@ const UsersTable: React.FC<IUsersTable> = ({ users, loading }) => {
             {table.getState().pagination.pageIndex > 0 &&
               table.getState().pagination.pageIndex <
                 table.getPageCount() - 4 && (
-                <span>{table.getState().pagination.pageIndex}</span>
+                <span>{table.getState().pagination.pageIndex + 1}</span>
               )}
             {table.getPageCount() - 1 - table.getState().pagination.pageIndex >
             3 ? (
               <>
                 <span
                   onClick={() => {
-                    handlePageSelect(table.getState().pagination.pageIndex + 2);
+                    handlePageSelect(table.getState().pagination.pageIndex + 1);
                   }}
                   style={{ opacity: 0.5 }}
                 >
@@ -369,7 +369,7 @@ const UsersTable: React.FC<IUsersTable> = ({ users, loading }) => {
                 </span>
                 <span
                   onClick={() =>
-                    handlePageSelect(table.getState().pagination.pageIndex + 3)
+                    handlePageSelect(table.getState().pagination.pageIndex + 2)
                   }
                   style={{ opacity: 0.5 }}
                 >
