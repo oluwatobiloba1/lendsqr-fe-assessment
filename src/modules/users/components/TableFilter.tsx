@@ -2,6 +2,7 @@ import { FilterUserTable } from "../types/filter-object.types";
 import "../styles/user-table.scss";
 import { ReactSVG } from "react-svg";
 import { useRef, useState } from "react";
+import { DateHelper } from "../../../utils/date-helper";
 
 export interface ITableFilter {
   filterFn: (filterObject: FilterUserTable) => void;
@@ -12,7 +13,7 @@ const initialValue = {
   organization: "",
   username: "",
   email: "",
-  date: "",
+  date: DateHelper.getDateString() as string,
   phonenumber: "",
   status: "" as any,
 };
@@ -68,16 +69,18 @@ const TableFilter: React.FC<ITableFilter> = ({ filterFn, resetFn }) => {
           <div className="form-control">
             <label htmlFor="date"> date</label>
             <input
-              type="datetime-local"
+              type="date"
               name="date"
               id="date"
               placeholder="Date"
               hidden
+              value={filterObject.date as string}
+              onChange={(e) => e.target.value}
               ref={dateRef}
             />
             <div style={{ position: "relative" }}>
               <input
-                style={{ position: "relative" }}
+                style={{ position: "relative", width: "100%" }}
                 type="text"
                 name="date"
                 id="date"

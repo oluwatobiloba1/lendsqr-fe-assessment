@@ -10,8 +10,9 @@ export class DateHelper {
     );
   }
 
-  static getJsDate(date?: string | Date) {
-    if (!date) return new Date();
-    return new Date(date);
+  static getDateString(value?: string | Date) {
+    const date = value ? new Date(value) : new Date();
+
+    return DateTime.fromJSDate(date).toISODate();
   }
 }
