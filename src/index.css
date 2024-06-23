@@ -19,6 +19,26 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+input:autofill {
+  background: white !important;
+}
+
+/* input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  background: white !important;
+  border: 3px solid red;
+} */
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-text-fill-color: #000 !important;
+  transition: background-color 5s ease-in-out 20000s;
+}
+
 a {
   text-decoration: none;
 }

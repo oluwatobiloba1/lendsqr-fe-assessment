@@ -72,12 +72,12 @@ const TableFilter: React.FC<ITableFilter> = ({ filterFn, resetFn }) => {
               name="date"
               id="date"
               placeholder="Date"
-              hidden
+              // hidden
               value={filterObject.date as string}
               onChange={(e) => e.target.value}
               ref={dateRef}
             />
-            <div style={{ position: "relative" }}>
+            {/* <div style={{ position: "relative" }}>
               <input
                 style={{ position: "relative", width: "100%" }}
                 type="text"
@@ -100,7 +100,7 @@ const TableFilter: React.FC<ITableFilter> = ({ filterFn, resetFn }) => {
               >
                 <ReactSVG src="/calendar.svg" />
               </button>
-            </div>
+            </div> */}
           </div>
           <div className="form-control">
             <label htmlFor="phonenumber">Phone number</label>
