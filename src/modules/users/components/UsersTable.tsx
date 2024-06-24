@@ -1,5 +1,6 @@
 import {
   PaginationState,
+  Row,
   createColumnHelper,
   flexRender,
   getCoreRowModel,
@@ -18,6 +19,7 @@ import { User } from "../types/user.type";
 import TableFilter from "./TableFilter";
 import { useNavigate } from "@tanstack/react-router";
 import { FilterUserTable } from "../types/filter-object.types";
+import { DateTime } from "luxon";
 
 export interface IUsersTable {
   users: Array<User>;
@@ -33,6 +35,21 @@ const statusStying: Record<User["status"], { bg: string; color: string }> = {
 const UsersTable: React.FC<IUsersTable> = ({ users, loading }) => {
   const [selectedId, setSelectedId] = React.useState<string | null>(null);
   const columnHelper = createColumnHelper<User>();
+
+  const dateJoinedFilter = (
+    row: Row<User>,
+    columnId: string,
+    filterValue: any
+  ) => {
+    console.log({ columnId });
+    console.log({ filterValue });
+    const filterDate = DateTime.fromJSDate(new Date(filterValue));
+    const currentRowDate = DateTime.fromJSDate(
+      new Date(row.original.dateJoined)
+    );
+    return filterDate.hasSame(currentRowDate, "year");
+  };
+
   const columns = [
     columnHelper.accessor("personalinfo.organization", {
       header: "Organization",
@@ -58,6 +75,7 @@ const UsersTable: React.FC<IUsersTable> = ({ users, loading }) => {
       id: "date",
       cell: (info) => DateHelper.dateWithTime(info.getValue()),
       header: "date joined",
+      filterFn: dateJoinedFilter,
     }),
     columnHelper.accessor("status", {
       id: "status",
@@ -140,6 +158,7 @@ const UsersTable: React.FC<IUsersTable> = ({ users, loading }) => {
     pageIndex: 0,
     pageSize: 50,
   });
+
   const table = useReactTable({
     columns,
     data: users ?? [],
@@ -149,6 +168,9 @@ const UsersTable: React.FC<IUsersTable> = ({ users, loading }) => {
     getFilteredRowModel: getFilteredRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
     onPaginationChange: setPagination,
+    filterFns: {
+      dateJoinedFilter,
+    },
     //no need to pass pageCount or rowCount with client-side pagination as it is calculated automatically
     state: {
       pagination,

@@ -1,6 +1,6 @@
 import { FilterUserTable } from "../types/filter-object.types";
 import "../styles/user-table.scss";
-import { ReactSVG } from "react-svg";
+// import { ReactSVG } from "react-svg";
 import { useRef, useState } from "react";
 
 export interface ITableFilter {
@@ -71,10 +71,10 @@ const TableFilter: React.FC<ITableFilter> = ({ filterFn, resetFn }) => {
               type="date"
               name="date"
               id="date"
-              placeholder="Date"
+              // placeholder="Date"
               // hidden
               value={filterObject.date as string}
-              onChange={(e) => e.target.value}
+              onChange={(e) => handleChange("date", e.target.value)}
               ref={dateRef}
             />
             {/* <div style={{ position: "relative" }}>
